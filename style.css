@@ -1,0 +1,47 @@
+/* processImages */
+
+div#imagesPanel {
+    position: fixed;
+    z-index: 10000;
+    top: 5px;
+    right: 5px;
+    width: 150px;
+    border: 2px solid black;
+    padding: 5px 0;
+    background-color: gray;
+}
+
+div#imagesPanel a#title {
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+div#imagesPanel a img.hiddenImage {
+    position: relative;
+    left: 25px; 
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+}
+
+/* detailImage */
+
+html body div#detailPanel {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    width: 450px;
+    height: 350px;
+    padding: 5px;
+    background-color: gray;
+    opacity: 0.6;
+    overflow: scroll;
+}
+
+html body div#detailPanel div#details {
+    color: white;
+    font-size: 1.1em;
+}
+
+/* EOF */
