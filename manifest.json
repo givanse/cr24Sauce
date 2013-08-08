@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+
+    "name": "cr24Sauce",
+    "description": "Get some sauce.",
+    "version": "1.0",
+
+    "content_scripts": [
+        /* Find hidden images and add extra controls. */
+        {   
+            "matches": ["<all_urls>"],
+            "css": ["findImages/style.css"],
+            "js": ["jquery.js", "findImages/findImages.js"]
+        }
+    ]
+}
