@@ -9,6 +9,7 @@
         /* Find hidden images and add extra controls. */
         {   
             "matches": ["<all_urls>"],
+            "exclude_matches": ["*://*.wikipedia.org/*"],
             "css": ["findImages/style.css"],
             "js": ["jquery.js", "findImages/findImages.js"]
         }
