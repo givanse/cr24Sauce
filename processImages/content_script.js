@@ -29,6 +29,9 @@ function storeImage(url) {
 }
 
 function findDivImages(div) {
+    if($(div).attr('class') == 'spaceball') /* Flickr mask. */
+        return;
+
     var background = $(div).css('background');
     var url = hasURL(background);
     storeImage(url); 
@@ -54,3 +57,4 @@ $(document).ready(function() {
 });
 
 
+/* EOF */
