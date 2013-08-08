@@ -1,6 +1,12 @@
 
 var IMAGES = new Array(0);
 
+var title = $('<a/>').attr('id', 'title')
+                     .attr('href', "http://github.com/givanse/cr24Sauce")                                       
+                     .attr('target', '_blank')
+                     .html('<h4>cr24Sauce</h4>');
+IMAGES.push(title);
+
 function hasURL(string) {
     var re = /(url\()(.*)(\))/;
     var array = re.exec(string);
@@ -43,8 +49,8 @@ $(document).ready(function() {
         findImgImages(img);
     });
 
-    var urlsPanel = $('<div/>').attr('id', 'imagesPanel').html(IMAGES);
-    $(document.body).append(urlsPanel);
+    var imagesPanel = $('<div/>').attr('id', 'imagesPanel').html(IMAGES);
+    $(document.body).append(imagesPanel);
 });
 
 

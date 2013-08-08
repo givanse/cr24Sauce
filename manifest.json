@@ -10,8 +10,8 @@
         {   
             "matches": ["<all_urls>"],
             "exclude_matches": ["*://*.wikipedia.org/*"],
-            "css": ["findImages/style.css"],
-            "js": ["jquery.js", "findImages/findImages.js"]
+            "css": ["processImages/style.css"],
+            "js": ["jquery.js", "processImages/content_script.js"]
         }
     ]
 }
