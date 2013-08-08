@@ -6,10 +6,17 @@
     "version": "1.0",
 
     "content_scripts": [
+        /* Display image details. */
+        {   
+            "matches": ["*://*/*.jpg", "*://*/*.jpeg", "*://*/*.png"],
+            "css": ["detailImage/style.css"],
+            "js": ["jquery.js", "detailImage/content_script.js"]
+        },
         /* Find hidden images and add extra controls. */
         {   
-            "matches": ["<all_urls>"],
-            "exclude_matches": ["*://*.wikipedia.org/*"],
+            "matches": ["http://*/*", "https://*/*"],
+            "exclude_matches": ["*://*.wikipedia.org/*",
+                                "*://*/*.jpg", "*://*/*.jpeg", "*://*/*.png"],
             "css": ["processImages/style.css"],
             "js": ["jquery.js", "processImages/content_script.js"]
         }

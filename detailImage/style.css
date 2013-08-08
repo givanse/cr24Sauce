@@ -1,0 +1,19 @@
+
+#detailPanel {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 450px;
+    height: 350px;
+    padding: 5px;
+    background-color: gray;
+    opacity: 0.6;
+    overflow: scroll;
+}
+
+#detailPanel #details {
+    color: white;
+    font-size: 1.1em;
+}
+
+/* EOF */

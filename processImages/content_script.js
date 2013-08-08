@@ -43,6 +43,7 @@ function findImgImages(img) {
 }
 
 $(document).ready(function() {
+    console.log('processing images');
     /* google.com */
     $('div').each(function(index, div) {
         findDivImages(div);
