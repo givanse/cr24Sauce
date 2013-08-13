@@ -13,12 +13,12 @@
                         "css": ["style.css"],
                          "js": ["jquery.js", 
                                 "jquery-ui.js",
-                                "content_scripts/processImages.js"]
+                                "js/processImages.js"]
         },
         {   
             "matches": ["*://*/*.jpg", "*://*/*.jpeg", "*://*/*.png"],
                 "css": ["style.css"],
-                 "js": ["jquery.js", "content_scripts/detailImage.js"]
+                 "js": ["jquery.js", "js/detailImage.js"]
         }
     ],
 
