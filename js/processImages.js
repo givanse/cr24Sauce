@@ -1,12 +1,6 @@
 
 var IMAGES = new Array(0);
 
-var title = $('<a/>').attr('id', 'title')
-                     .attr('href', "http://github.com/givanse/cr24Sauce")                                       
-                     .attr('target', '_blank')
-                     .html('<h4>cr24Sauce</h4>');
-IMAGES.push(title);
-
 /******************************************************************************/
 
 function getImageSize(url, imageOverlay) {
@@ -62,6 +56,19 @@ function findBackgroundImage(element) {
     storeImage(url); 
 }
 
+function getImagesPanel() {
+    var title = $('<a/>').attr('id', 'title')
+                         .attr('href', "http://github.com/givanse/cr24Sauce")
+                         .attr('target', '_blank')
+                         .html('<h4>cr24Sauce</h4>');
+    var imagesPanel = $('<div/>').attr('id', 'imagesPanel')
+                                 .attr('class', 'ui-widget-content')
+                                 .append(title)
+                                 .append(IMAGES);
+    imagesPanel.draggable();
+    return imagesPanel;
+}
+
 $(document).ready(function() {
     /* google.com */
     $('div').each(function(index, element) {
@@ -73,16 +80,12 @@ $(document).ready(function() {
         storeImage(url); 
     });
 
-    var imagesPanel = $('<div/>').attr('id', 'imagesPanel')
-                                 .attr('class', 'ui-widget-content')
-                                 .html(IMAGES);
-    imagesPanel.draggable();
+    var imagesPanel = getImagesPanel(); 
 
     var wrapper = $('<div/>').attr('id', 'cr24SauceWrapper')
                              .append(imagesPanel);
 
     $(document.body).append(wrapper);
 });
-
 
 /* EOF */
