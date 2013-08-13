@@ -60,7 +60,7 @@ function getImagesPanel() {
     var title = $('<a/>').attr('id', 'title')
                          .attr('href', "http://github.com/givanse/cr24Sauce")
                          .attr('target', '_blank')
-                         .html('<h4>cr24Sauce</h4>');
+                         .html('cr24Sauce');
     var imagesPanel = $('<div/>').attr('id', 'imagesPanel')
                                  .attr('class', 'ui-widget-content')
                                  .append(title)
