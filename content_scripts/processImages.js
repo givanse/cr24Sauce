@@ -78,7 +78,7 @@ $(document).ready(function() {
                                  .html(IMAGES);
     imagesPanel.draggable();
 
-    var wrapper = $('<div/>').attr('id', 'wrapper')
+    var wrapper = $('<div/>').attr('id', 'cr24SauceWrapper')
                              .append(imagesPanel);
 
     $(document.body).append(wrapper);

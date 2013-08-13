@@ -1,16 +1,16 @@
 /* processImages */
 
-div#wrapper {
+div#cr24SauceWrapper {
     position: fixed;
     top: 0px;
-    right: 100px;
+    right: 150px; /* imagesPanel width */
     z-index: 10000;
 
     width: 0px;
     height: 0px;
 }
 
-div#wrapper div#imagesPanel {
+div#cr24SauceWrapper div#imagesPanel {
     position: relative;
     top: 0px;
     right: 0px;
