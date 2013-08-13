@@ -17,10 +17,16 @@ div#cr24SauceWrapper div#imagesPanel {
 
     width: 150px;
     height: 600px;
-    border: 2px solid black;
+    border: 2px solid gray;
+    border-radius: 10px;
     padding: 5px 0;
-    background-color: gray;
     overflow: scroll;
+    background-color: gray;
+
+    filter: alpha(opacity = 60);                                                 
+    -moz-opacity: 0.60;                                                          
+    opacity: 0.60;                                                               
+    -khtml-opacity: 0.60;
 }
 
 div#imagesPanel a#title {
