@@ -7,11 +7,25 @@ var title = $('<a/>').attr('id', 'title')
                      .html('<h4>cr24Sauce</h4>');
 IMAGES.push(title);
 
-function hasURL(string) {
+/******************************************************************************/
+
+function getImageSize(url, imageOverlay) {
+    var image = new Image();
+    image.name = url;
+    image.onload = function() {
+            var size = this.width + 'x' + this.height;
+            imageOverlay.append('<br/>Size: ' + size);
+        };
+    image.src = url;
+}
+
+function backgroundHasURL(string) {
     var re = /(url\()(.*)(\))/;
     var array = re.exec(string);
-    if(array)
-        return array[2];
+    if(array) {
+        var url = array[2];
+        return url;
+    }
 
     return false;
 }
@@ -27,13 +41,14 @@ function storeImage(url) {
                          .appendTo(imgWrap);
 
     var imageOverlay = $('<div/>').attr('class', 'imageOverlay')
-                                  .html('Size: <br/>')
                                   .appendTo(imgWrap);
 
     var openLink = $('<a/>').attr('href', url)
                               .attr('target', '_blank')
                               .html('open')
                               .appendTo(imageOverlay);
+
+    getImageSize(url, imageOverlay);
 
     IMAGES.push(imgWrap);
 }
@@ -43,7 +58,7 @@ function findDivImages(div) {
         return;
 
     var background = $(div).css('background');
-    var url = hasURL(background);
+    var url = backgroundHasURL(background);
     storeImage(url); 
 }
 
