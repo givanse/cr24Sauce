@@ -68,7 +68,6 @@ function findImgImages(img) {
 }
 
 $(document).ready(function() {
-    console.log('processing images');
     /* google.com */
     $('div').each(function(index, div) {
         findDivImages(div);
@@ -78,8 +77,16 @@ $(document).ready(function() {
         findImgImages(img);
     });
 
-    var imagesPanel = $('<div/>').attr('id', 'imagesPanel').html(IMAGES);
-    $(document.body).append(imagesPanel);
+
+    var imagesPanel = $('<div/>').attr('id', 'imagesPanel')
+                                 .attr('class', 'ui-widget-content')
+                                 .html(IMAGES);
+    imagesPanel.draggable();
+
+    var wrapper = $('<div/>').attr('id', 'wrapper')
+                             .append(imagesPanel);
+
+    $(document.body).append(wrapper);
 });
 
 

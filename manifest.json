@@ -11,7 +11,9 @@
             "exclude_matches": ["*://*.wikipedia.org/*",
                                 "*://*/*.jpg", "*://*/*.jpeg", "*://*/*.png"],
                         "css": ["style.css"],
-                         "js": ["jquery.js", "content_scripts/processImages.js"]
+                         "js": ["jquery.js", 
+                                "jquery-ui.js",
+                                "content_scripts/processImages.js"]
         },
         {   
             "matches": ["*://*/*.jpg", "*://*/*.jpeg", "*://*/*.png"],
