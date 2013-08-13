@@ -20,12 +20,22 @@ function storeImage(url) {
     if(! url)
         return;
 
-    var link = $('<a/>').attr('href', url)
-                        .attr('target', '_blank');
-    var img = $('<img/>').attr('src', url)
-                         .attr('class', 'hiddenImage')
-                         .appendTo(link);
-    IMAGES.push(link);
+    var imgWrap = $('<div/>').attr('class', 'imageWrap');
+
+    var img = $('<img/>').attr('class', 'hiddenImage')
+                         .attr('src', url)
+                         .appendTo(imgWrap);
+
+    var imageOverlay = $('<div/>').attr('class', 'imageOverlay')
+                                  .html('Size: <br/>')
+                                  .appendTo(imgWrap);
+
+    var openLink = $('<a/>').attr('href', url)
+                              .attr('target', '_blank')
+                              .html('open')
+                              .appendTo(imageOverlay);
+
+    IMAGES.push(imgWrap);
 }
 
 function findDivImages(div) {
