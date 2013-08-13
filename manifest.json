@@ -9,14 +9,14 @@
         {   
                     "matches": ["http://*/*", "https://*/*"],
             "exclude_matches": ["*://*.wikipedia.org/*",
-                                "*://*/*.jpg", "*://*/*.jpeg", "*://*/*.png"],
+                                "*://*/*.*"], /* below script's matches */
                         "css": ["style.css"],
                          "js": ["jquery.js", 
                                 "jquery-ui.js",
                                 "js/processImages.js"]
         },
         {   
-            "matches": ["*://*/*.jpg", "*://*/*.jpeg", "*://*/*.png"],
+            "matches": ["*://*/*.*"],
                 "css": ["style.css"],
                  "js": ["jquery.js", "js/detailImage.js"]
         }
