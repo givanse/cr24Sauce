@@ -53,30 +53,25 @@ function storeImage(url) {
     IMAGES.push(imgWrap);
 }
 
-function findDivImages(div) {
-    if($(div).attr('class') == 'spaceball') /* Flickr mask. */
+function findBackgroundImage(element) {
+    if($(element).attr('class') == 'spaceball') /* Flickr mask. */
         return;
 
-    var background = $(div).css('background');
+    var background = $(element).css('background');
     var url = backgroundHasURL(background);
-    storeImage(url); 
-}
-
-function findImgImages(img) {
-    var url = $(img).attr('src');
     storeImage(url); 
 }
 
 $(document).ready(function() {
     /* google.com */
-    $('div').each(function(index, div) {
-        findDivImages(div);
+    $('div').each(function(index, element) {
+        findBackgroundImage(element);
     });
     /* flickr.com */
     $('div#allsizes-photo img').each(function(index, img) {
-        findImgImages(img);
+        var url = $(img).attr('src');
+        storeImage(url); 
     });
-
 
     var imagesPanel = $('<div/>').attr('id', 'imagesPanel')
                                  .attr('class', 'ui-widget-content')
