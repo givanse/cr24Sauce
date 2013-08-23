@@ -3,7 +3,7 @@ var IMAGES = new Array(0);
 
 /******************************************************************************/
 
-function onloadAddToOverlayImageSize(imageWrapper, imageOverlay, url) {
+function onloadAddImgSizeToImgOverlay(imageWrapper, imageOverlay, url) {
     var image = new Image();
     image.name = url;
     image.src = url;
@@ -20,7 +20,7 @@ function onloadAddToOverlayImageSize(imageWrapper, imageOverlay, url) {
         };
 }
 
-function backgroundHasURL(string) {
+function isCSSBackgroundAnURL(string) {
     var re = /(url\()(.*)(\))/;
     var array = re.exec(string);
     if(array) {
@@ -31,7 +31,7 @@ function backgroundHasURL(string) {
     return false;
 }
 
-function storeImage(url) {
+function addImageToIMAGESArray(url) {
     if(! url)
         return;
 
@@ -49,12 +49,12 @@ function storeImage(url) {
                               .html('open')
                               .appendTo(imageOverlay);
 
-    onloadAddToOverlayImageSize(imgWrap[0], imageOverlay, url);
+    onloadAddImgSizeToImgOverlay(imgWrap[0], imageOverlay, url);
 
     IMAGES.push(imgWrap);
 }
 
-function getImagesPanel() {
+function buildImagesPanel() {
     var title = $('<a/>').attr('id', 'title')
                          .attr('href', "http://github.com/givanse/cr24Sauce")
                          .attr('target', '_blank')
@@ -74,14 +74,14 @@ $(document).ready(function() {
             return;
 
         var background = $(element).css('background');
-        var url = backgroundHasURL(background);
-        storeImage(url); 
+        var url = isCSSBackgroundAnURL(background);
+        addImageToIMAGESArray(url); 
     });
     
     
     $('div#allsizes-photo img').each(function(index, img) {
         var url = $(img).attr('src');
-        storeImage(url); 
+        addImageToIMAGESArray(url); 
     });
     
     /* youtube.com */
@@ -91,10 +91,10 @@ $(document).ready(function() {
             return;
             
         var url = $(element).attr('content');
-        storeImage(url); 
+        addImageToIMAGESArray(url); 
     });
     
-    var imagesPanel = getImagesPanel(); 
+    var imagesPanel = buildImagesPanel(); 
 
     var wrapper = $('<div/>').attr('id', 'cr24SauceWrapper')
                              .append(imagesPanel);
