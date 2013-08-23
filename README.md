@@ -1,5 +1,8 @@
 cr24Sauce
 =========
-Dependencies:
-    JQuery
+
+Chrome extension.
+
+Dependencies:<br/>
+    JQuery<br/>
     JQuery UI
