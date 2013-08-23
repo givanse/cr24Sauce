@@ -58,6 +58,7 @@ div#imagesPanel a#title {
     width: 75px;
     text-align: center;
     color: white;
+    font-size: 0.9em;
 }
 
 .imageWrap .imageInfo a { }  
