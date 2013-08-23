@@ -3,11 +3,18 @@ var IMAGES = new Array(0);
 
 /******************************************************************************/
 
-function printImageSize(url, imageOverlay) {
+function onloadAddToOverlayImageSize(imageWrapper, imageOverlay, url) {
     var image = new Image();
     image.name = url;
     image.src = url;
+    
     image.onload = function() {
+            var minimumSize = 128;
+            if(this.width <= minimumSize || this.height <= minimumSize) {
+                imageWrapper.parentNode.removeChild(imageWrapper);
+                return;
+            }
+                
             var size = this.width + 'x' + this.height;
             imageOverlay.append('<br/>Size: ' + size);
         };
@@ -30,30 +37,21 @@ function storeImage(url) {
 
     var imgWrap = $('<div/>').attr('class', 'imageWrap');
 
-    var img = $('<img/>').attr('class', 'theImage')
+    var theImage = $('<img/>').attr('class', 'theImage')
                          .attr('src', url)
                          .appendTo(imgWrap);
 
     var imageOverlay = $('<div/>').attr('class', 'imageOverlay')
                                   .appendTo(imgWrap);
 
-    var openLink = $('<a/>').attr('href', url)
+    var openImageLink = $('<a/>').attr('href', url)
                               .attr('target', '_blank')
                               .html('open')
                               .appendTo(imageOverlay);
 
-    printImageSize(url, imageOverlay);
+    onloadAddToOverlayImageSize(imgWrap[0], imageOverlay, url);
 
     IMAGES.push(imgWrap);
-}
-
-function findBackgroundImage(element) {
-    if($(element).attr('class') == 'spaceball') /* Flickr mask. */
-        return;
-
-    var background = $(element).css('background');
-    var url = backgroundHasURL(background);
-    storeImage(url); 
 }
 
 function getImagesPanel() {
@@ -70,18 +68,23 @@ function getImagesPanel() {
 }
 
 $(document).ready(function() {
-    /* google.com */
+    /* DIVs with background images */
     $('div').each(function(index, element) {
-        findBackgroundImage(element);
+        if($(element).attr('class') == 'spaceball') /* Flickr mask, skip. */
+            return;
+
+        var background = $(element).css('background');
+        var url = backgroundHasURL(background);
+        storeImage(url); 
     });
     
-    /* flickr.com */
+    
     $('div#allsizes-photo img').each(function(index, img) {
         var url = $(img).attr('src');
         storeImage(url); 
     });
     
-    /* google.com */
+    /* youtube.com */
     $('meta').each(function(index, element) {
         var property = $(element).attr('property');
         if(property != 'og:image')
