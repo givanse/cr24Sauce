@@ -7,7 +7,7 @@
 
     "content_scripts": [
         {   
-                    "matches": ["http://*/*", "https://*/*"],
+                    "matches": ["http://*/*", "https://*/*", "*://*/*.htm*"],
             "exclude_matches": ["*://*.wikipedia.org/*",
                                 "*://*/*.*"], /* below script's matches */
                         "css": ["style.css"],
@@ -17,6 +17,7 @@
         },
         {   
             "matches": ["*://*/*.*"],
+            "exclude_matches": ["*://*/*.htm*"],
                 "css": ["style.css"],
                  "js": ["jquery.js", "js/detailImage.js"]
         }
