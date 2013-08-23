@@ -46,9 +46,7 @@ div#imagesPanel a#title {
 
 .imageWrap {
     margin: auto;
-
     width: 75px;
-    height: 75px;
 }
 
 .theImage {
@@ -56,22 +54,13 @@ div#imagesPanel a#title {
     height: 75px;
 }
 
-.imageOverlay {
-    position: relative;
-    top: -79px;
-    left: 0px;
-       
-    border: 1px solid black;
+.imageInfo {
     width: 75px;
-    height: 75px;
-    text-align: right;
+    text-align: center;
+    color: white;
 }
 
-.imageWrap .imageOverlay a {
-    background-color: black;
-    color: white;
-    font-size: 1.1em;
-}
+.imageWrap .imageInfo a { }  
 
 /* detailImage */
 

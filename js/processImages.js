@@ -3,7 +3,7 @@ var IMAGES = new Array(0);
 
 /******************************************************************************/
 
-function onloadAddImgSizeToImgOverlay(imageWrapper, imageOverlay, url) {
+function onloadAddImgSizeToImgOverlay(imageWrapper, imageInfo, url) {
     var image = new Image();
     image.name = url;
     image.src = url;
@@ -16,7 +16,7 @@ function onloadAddImgSizeToImgOverlay(imageWrapper, imageOverlay, url) {
             }
                 
             var size = this.width + 'x' + this.height;
-            imageOverlay.append('<br/>Size: ' + size);
+            imageInfo.append(size);
         };
 }
 
@@ -37,19 +37,18 @@ function addImageToIMAGESArray(url) {
 
     var imgWrap = $('<div/>').attr('class', 'imageWrap');
 
+    var openImageLink = $('<a/>').attr('href', url)
+                          .attr('target', '_blank')
+                          .appendTo(imgWrap);
+                          
     var theImage = $('<img/>').attr('class', 'theImage')
                          .attr('src', url)
-                         .appendTo(imgWrap);
+                         .appendTo(openImageLink);
 
-    var imageOverlay = $('<div/>').attr('class', 'imageOverlay')
+    var imageInfo = $('<div/>').attr('class', 'imageInfo')
                                   .appendTo(imgWrap);
 
-    var openImageLink = $('<a/>').attr('href', url)
-                              .attr('target', '_blank')
-                              .html('open')
-                              .appendTo(imageOverlay);
-
-    onloadAddImgSizeToImgOverlay(imgWrap[0], imageOverlay, url);
+    onloadAddImgSizeToImgOverlay(imgWrap[0], imageInfo, url);
 
     IMAGES.push(imgWrap);
 }
