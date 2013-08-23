@@ -9,8 +9,8 @@ function onloadAddImgSizeToImgOverlay(imageWrapper, imageInfo, url) {
     image.src = url;
     
     image.onload = function() {
-            var minimumSize = 128;
-            if(this.width <= minimumSize || this.height <= minimumSize) {
+            var minimumSize = 64;
+            if(this.width < minimumSize || this.height < minimumSize) {
                 imageWrapper.parentNode.removeChild(imageWrapper);
                 return;
             }
