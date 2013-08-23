@@ -3,14 +3,14 @@ var IMAGES = new Array(0);
 
 /******************************************************************************/
 
-function getImageSize(url, imageOverlay) {
+function printImageSize(url, imageOverlay) {
     var image = new Image();
     image.name = url;
+    image.src = url;
     image.onload = function() {
             var size = this.width + 'x' + this.height;
             imageOverlay.append('<br/>Size: ' + size);
         };
-    image.src = url;
 }
 
 function backgroundHasURL(string) {
@@ -30,7 +30,7 @@ function storeImage(url) {
 
     var imgWrap = $('<div/>').attr('class', 'imageWrap');
 
-    var img = $('<img/>').attr('class', 'hiddenImage')
+    var img = $('<img/>').attr('class', 'theImage')
                          .attr('src', url)
                          .appendTo(imgWrap);
 
@@ -42,7 +42,7 @@ function storeImage(url) {
                               .html('open')
                               .appendTo(imageOverlay);
 
-    getImageSize(url, imageOverlay);
+    printImageSize(url, imageOverlay);
 
     IMAGES.push(imgWrap);
 }
