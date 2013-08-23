@@ -74,12 +74,23 @@ $(document).ready(function() {
     $('div').each(function(index, element) {
         findBackgroundImage(element);
     });
+    
     /* flickr.com */
     $('div#allsizes-photo img').each(function(index, img) {
         var url = $(img).attr('src');
         storeImage(url); 
     });
-
+    
+    /* google.com */
+    $('meta').each(function(index, element) {
+        var property = $(element).attr('property');
+        if(property != 'og:image')
+            return;
+            
+        var url = $(element).attr('content');
+        storeImage(url); 
+    });
+    
     var imagesPanel = getImagesPanel(); 
 
     var wrapper = $('<div/>').attr('id', 'cr24SauceWrapper')
