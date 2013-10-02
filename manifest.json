@@ -6,18 +6,21 @@
     "version": "1.0",
 
     "content_scripts": [
+        /* Discover images. */
         {   
-                    "matches": ["http://*/*", "https://*/*", "*://*/*.htm*"],
-            "exclude_matches": ["*://*.wikipedia.org/*",
-                                "*://*/*.*"], /* below script's matches */
+                    "matches": ["http://*/*", "https://*/*", "*://*/*.*"],
+            "exclude_matches": ["*://*.wikipedia.org/*"],
                         "css": ["style.css"],
                          "js": ["jquery.js", 
                                 "jquery-ui.js",
                                 "js/processImages.js"]
         },
+        /* Single image details. */
         {   
-            "matches": ["*://*/*.*"],
-            "exclude_matches": ["*://*/*.htm*"],
+            "matches": ["*://*/*.jpg",
+                        "*://*/*.jpeg",
+                        "*://*/*.png",
+                        "*://*/*.gif"],
                 "css": ["style.css"],
                  "js": ["jquery.js", "js/detailImage.js"]
         }
