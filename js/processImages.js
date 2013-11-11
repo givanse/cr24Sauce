@@ -35,6 +35,15 @@ function addImageToIMAGESArray(url) {
     if(! url)
         return;
 
+    // TODO: optimize URL look up
+    /* Look for duplicates and avoid them. */
+    for(i in IMAGES) {
+        var div = $(IMAGES[i]);
+        var tmpURL = div.find('a img').attr('src');
+        if(url === tmpURL)
+            return;
+    }
+
     var imgWrap = $('<div/>').attr('class', 'imageWrap');
 
     var openImageLink = $('<a/>').attr('href', url)
